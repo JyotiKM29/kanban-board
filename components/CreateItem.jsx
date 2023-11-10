@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import { addItem as addItemAction } from "@/Slice/ItemSlice";
 
 function CreateItem({onAddItem}) {
+  const currentDate = new Date().toISOString().split('T')[0];
   const [itemName, setItemName] = useState("");
   const [itemDesc, setItemDesc] = useState("");
-  const [dueDate, setDueDate] = useState(null);
+  const [dueDate, setDueDate] = useState(currentDate);
   const [addbtn, setAddBtn] = useState(true);
 
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function CreateItem({onAddItem}) {
       id: Date.now(),
       itemName,
       itemDesc,
-      dueDate,
+      dueDate ,
     };
     // dispatch(addItemAction(newItem));
 
