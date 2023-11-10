@@ -28,15 +28,7 @@ function CreateBoard() {
      
     dispatch(addBoard(newBoard)); 
 
-    // // Add a default column when a new board is created
-    // const newColumn = {
-    //   id: Date.now(), // Generate a unique ID
-    //   name: "To do", // Default column name
-    //   boardId: newBoard.id, // Link the column to the new board
-    // };
-
-    // // Dispatch addColumn action
-    // dispatch(addColumn(newColumn));
+ 
   
     console.log(boards);
    
@@ -55,10 +47,10 @@ function CreateBoard() {
           onClick={() => setAddBtn(!addBtn)}
         >
           {" "}
-          <span className="text-xl"> + </span> Add Item{" "}
+          <span className="text-xl"> + </span> New Project{" "}
         </button>
       ) : (
-        <div className="bg-violet-500 drop-shadow-lg shadow-violet-500/20 h-auto w-[90%] py-4 px-4 rounded-xl w-[12rem] mb-4 h-44 sm:w-4/6 md:2/6 lg:1/3 fixed bottom-0 right-[5%] z-50">
+        <div className="bg-violet-500 drop-shadow-lg shadow-violet-500/20 h-auto w-[90%] py-4 px-4 rounded-xl  mb-4  sm:w-4/6 md:2/6 lg:1/3 fixed bottom-0 right-[5%] z-50">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-2 relative h-full"
@@ -93,7 +85,7 @@ function CreateBoard() {
                     className="font-semi-bold hover:pointer active:translate-y-[1px]"
                     type="submit"
                   >
-                    Add Item
+                    Add Project
                   </button>
                 </li>
               </ul>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { HiArrowSmallLeft } from "react-icons/hi2";
 import { useSelector } from "react-redux";
-import CreateItem from "@/components/CreateItem"; // Import CreateItem
+import CreateItem from "@/components/CreateItem"; 
 import CreateColumn from "@/components/CreateColumn";
 import Column from "@/components/Column";
 import { useEffect, useState } from "react";
@@ -38,7 +38,6 @@ function KanbanBoardDetails() {
   }
 
   useEffect(() => {
-    // Check if there are no columns, then add default columns
     if (columns.length === 0) {
       const defaultColumns = [
         { id: 1, name: "To do", boardId: id },
@@ -55,12 +54,15 @@ function KanbanBoardDetails() {
   }
 
   return (
-    <div className="bg-violet-200 w-screen h-max sm:h-screen p-6">
-      <Link href="/">
-        <HiArrowSmallLeft />
+    <div className="bg-violet-200 w-screen min-h-screen  p-6">
+      <Link  className="flex justify-start items-center gap-2" href="/">
+      
+      <HiArrowSmallLeft  className="text-2xl mb-2"/> <span>Back</span>
+     
+      
       </Link>
-      <div className="bg-stone-50 rounded-xl h-max sm:h-[94%] px-5 pt-4 sm:p-4 sm:pt-2">
-        <div className="bg-stone-50 rounded-xl h-[94%]  sm:p-4 sm:pt-6">
+      <div className="bg-stone-50 rounded-xl min-h-screen  px-5 pt-4 sm:p-8 ">
+     
           <div className="flex justify-between items-center mb-8">
             <div className="flex flex-col  sm:gap-1 justify-start items-start">
               <h1 className="text-2xl sm:text-3xl text-stone-950 ml-4 font-semibold">
@@ -87,7 +89,7 @@ function KanbanBoardDetails() {
               />
             ))}
           </div>
-        </div>
+        
       </div>
     </div>
   );

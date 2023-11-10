@@ -37,8 +37,8 @@ function Column({ columnHeading, columnId, boardId, onDeleteCol, onEditCol }) {
   }
 
   return (
-    <div>
-      <div className="flex justify-between items-center mb-2 p-1">
+    <div className="border rounded-2xl px-6 py-4">
+      <div className="flex  justify-between items-center mb-2 p-1">
         {editing ? (
           <input
             className="input w-5/6"

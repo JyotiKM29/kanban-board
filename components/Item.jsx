@@ -21,7 +21,7 @@ function Item({ item, onDeleteItem, onUpdateItem }) {
   };
 
   return (
-    <div className="bg-slate-50 drop-shadow-lg  shadow-violet-500/20 h-auto w-full py-3 px-4 rounded-xl mt-2 mb-4">
+    <div className="bg-slate-50 drop-shadow-lg  shadow-violet-500/20 h-auto w-full py-3 px-4 rounded-xl  mb-2 ">
       {editing ? (
         <form className='flex flex-col gap-2' onSubmit={handleUpdateItem}>
   <input

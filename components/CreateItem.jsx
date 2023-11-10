@@ -23,8 +23,6 @@ function CreateItem({onAddItem}) {
       itemDesc,
       dueDate ,
     };
-    // dispatch(addItemAction(newItem));
-
     onAddItem(newItem);
     
     setItemName("");
@@ -37,14 +35,14 @@ function CreateItem({onAddItem}) {
     <>
       {addbtn ? (
         <button
-          className="bg-violet-100 px-4 py-2 w-full rounded-full text-violet-800 focus:outline-none "
+          className="bg-violet-100 px-4 py-2 w-full rounded-full mt-2 text-violet-800 focus:outline-none "
           onClick={() => setAddBtn(!addbtn)}
         >
           {" "}
           <span className="text-xl">+ </span> Add Item{" "}
         </button>
       ) : (
-        <div className="bg-violet-500 drop-shadow-lg  shadow-violet-500/20 h-auto w-full py-3 px-4 rounded-xl w-[12rem] mb-4">
+        <div className="bg-violet-500 drop-shadow-lg  shadow-violet-500/20 h-auto w-full py-3 px-4 rounded-xl w-[12rem] mb-4 mt-2">
           <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
             <input
               className="input "

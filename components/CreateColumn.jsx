@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 
-
-function CreateColumn({onAddCol, boardId, columnId}) {
+function CreateColumn({ onAddCol, boardId, columnId }) {
   const [columnName, setColumnName] = useState();
   const [addBtn, setAddBtn] = useState(true);
-  // const dispatch = useDispatch();
+ 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +18,6 @@ function CreateColumn({onAddCol, boardId, columnId}) {
       boardId,
     };
 
-    
     onAddCol(newColumn);
 
     setColumnName("");
@@ -38,7 +36,10 @@ function CreateColumn({onAddCol, boardId, columnId}) {
         </button>
       ) : (
         <div className="drop-shadow-lg shadow-violet-500/20 h-auto  py-4 px-4 rounded-xl  ">
-          <form onSubmit={handleSubmit} className="flex gap-2 relative h-full relative w-full">
+          <form
+            onSubmit={handleSubmit}
+            className="flex gap-2 relative h-full relative w-full"
+          >
             <input
               className="input focus:w-80 "
               type="text"
@@ -47,23 +48,17 @@ function CreateColumn({onAddCol, boardId, columnId}) {
               onChange={(e) => setColumnName(e.target.value)}
             />
 
-           
-              
-                <button
-                  className="font-semibold  
+            <button
+              className="font-semibold  
                   bg-violet-800
                   px-5 py-2 rounded-full
                   text-stone-50
                   hover:pointer active:translate-y-[1px] absolute right-0 top-[0%]
                   "
-
-                  type="submit"
-
-                >
-                  Add
-                </button>
-              
-           
+              type="submit"
+            >
+              Add
+            </button>
           </form>
         </div>
       )}
