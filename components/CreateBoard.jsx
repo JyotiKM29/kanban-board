@@ -1,13 +1,16 @@
+import { addColumn } from "@/Slice/ColumnSlice";
 import { addBoard } from "@/Slice/boardSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-function CreateBoard({ onAddBoard }) {
+function CreateBoard() {
   const [boardName, setBoardName] = useState("");
   const [boardDesc, setBoardDesc] = useState("");
   const [addBtn, setAddBtn] = useState(true);
  
-  
+  const boards = useSelector(state => state.board.board);
+ 
+
   
 
   const dispatch= useDispatch();
@@ -24,7 +27,18 @@ function CreateBoard({ onAddBoard }) {
     };
      
     dispatch(addBoard(newBoard)); 
+
+    // // Add a default column when a new board is created
+    // const newColumn = {
+    //   id: Date.now(), // Generate a unique ID
+    //   name: "To do", // Default column name
+    //   boardId: newBoard.id, // Link the column to the new board
+    // };
+
+    // // Dispatch addColumn action
+    // dispatch(addColumn(newColumn));
   
+    console.log(boards);
    
     setBoardName("");
     setBoardDesc("");

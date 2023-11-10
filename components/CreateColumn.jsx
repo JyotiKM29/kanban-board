@@ -1,11 +1,12 @@
-import { addColumn } from "@/Slice/ColumnSlice";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+// Create Column
 
-function CreateColumn() {
+import { useState } from "react";
+
+
+function CreateColumn({onAddCol, boardId, columnId}) {
   const [columnName, setColumnName] = useState();
   const [addBtn, setAddBtn] = useState(true);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -13,11 +14,13 @@ function CreateColumn() {
     if (!columnName) return;
 
     const newColumn = {
-      id: Date.now(),
+      id: columnId || Date.now(),
       name: columnName,
+      boardId,
     };
 
-    dispatch(addColumn(newColumn));
+    
+    onAddCol(newColumn);
 
     setColumnName("");
 

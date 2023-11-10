@@ -13,10 +13,15 @@ const boardSlice = createSlice(
         
         },
 
-        updateBoard(state, action){
-            
-        },
-
+        updateBoard(state, action) {
+            const { id, name, desc } = action.payload;
+            const boardToUpdate = state.board.find((item) => item.id === id);
+      
+            if (boardToUpdate) {
+              boardToUpdate.name = name;
+              boardToUpdate.desc = desc;
+            }
+          },
         deleteBoard(state, action){
             state.board = state.board.filter((item) => item.id !== action.payload);
         }

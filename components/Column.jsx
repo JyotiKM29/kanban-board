@@ -1,40 +1,65 @@
-// KanbanColumn.js
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CreateItem from "./CreateItem";
 import Item from "./Item";
-import { useDispatch, useSelector } from "react-redux";
-import { BsThreeDots } from 'react-icons/bs';
-import {FiEdit2} from 'react-icons/Fi'
-import{MdDelete} from 'react-icons/Md'
-import { deleteColumn } from "@/Slice/ColumnSlice";
+import { FiEdit2,} from 'react-icons/Fi';
+import { MdDelete } from 'react-icons/Md';
 
-function Column({ columnHeading , columnId }) {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.item.item);
+function Column({ columnHeading, columnId, boardId, onDeleteCol, onEditCol }) {
+  const [items, setItems] = useState([]);
+  const [editing, setEditing] = useState(false);
+  const [newColumnName, setNewColumnName] = useState(columnHeading);
+
+  function handleAddItem(newItem) {
+    setItems([...items, newItem]);
+  }
+
+  function handleDeleteItem(itemId) {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  }
+
+  function handleDelete() {
+    onDeleteCol(columnId);
+  }
+
+  function handleEditColumnName() {
+    onEditCol(columnId, newColumnName);
+    setEditing(false);
+  }
 
   return (
     <div>
       <div className="flex justify-between items-center mb-2 p-1">
-        <h1 className="text-stone-800 text-lg">
-        { columnHeading }
-        </h1>
-        {/* <p className="text-2xl rounded-full bg-violet-100 w-8 h-8 text-center">
-          +
-        </p> */}
-        {/* <BsThreeDots /> */}
-        
+        {editing ? (
+          <input
+            className="input"
+            type="text"
+            value={newColumnName}
+            onChange={(e) => setNewColumnName(e.target.value)}
+          />
+        ) : (
+          <h1 className="text-stone-800 text-lg">
+            {columnHeading}
+          </h1>
+        )}
+
+        <div className="flex gap-1 sm:gap-2">
+          {editing ? (
+            <button onClick={handleEditColumnName}>Save</button>
+          ) : (
+            <FiEdit2 onClick={() => setEditing(true)} />
+          )}
+          <MdDelete onClick={handleDelete} />
+        </div>
       </div>
 
-      <CreateItem />
+      
       <ul className="flex flex-col gap-4">
         {items.map((el) => (
-          <Item key={el.id} item={el} />
+          <Item key={el.id} item={el} boardId={boardId} onDeleteItem={handleDeleteItem}/>
         ))}
       </ul>
-      <div className=" bg-violet-300 flex justify-between gap-1 px-4 py-2 w-full rounded-full text-violet-800 focus:outline-none mt-4 ">
-        <FiEdit2 />
-        <MdDelete  onClick={()=>dispatch(deleteColumn(columnId))}/>
-        </div>
+
+      <CreateItem onAddItem={handleAddItem} />
     </div>
   );
 }

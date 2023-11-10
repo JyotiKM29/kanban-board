@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem as addItemAction } from "@/Slice/ItemSlice";
 
-function CreateItem({board}) {
+function CreateItem({onAddItem}) {
   const [itemName, setItemName] = useState("");
   const [itemDesc, setItemDesc] = useState("");
   const [dueDate, setDueDate] = useState(null);
@@ -20,10 +20,11 @@ function CreateItem({board}) {
       id: Date.now(),
       itemName,
       itemDesc,
-      // boardId: board.id, 
       dueDate,
     };
-    dispatch(addItemAction(newItem));
+    // dispatch(addItemAction(newItem));
+
+    onAddItem(newItem);
     
     setItemName("");
     setItemDesc("");
