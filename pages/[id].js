@@ -1,3 +1,5 @@
+'use client'
+
 //[id].js
 import KanbanColumn from "@/components/Column";
 import Link from "next/link";

@@ -1,6 +1,7 @@
+'use client'
+
 import Link from "next/link";
-import { useState } from "react";
-import Kanban from "./Board";
+
 import CreateBoard from "./CreateBoard";
 import Board from "./Board";
 import { useSelector } from "react-redux";

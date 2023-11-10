@@ -1,4 +1,5 @@
 // Create Column
+'use client'
 
 import { useState } from "react";
 

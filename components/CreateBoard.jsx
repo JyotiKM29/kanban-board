@@ -1,4 +1,5 @@
-import { addColumn } from "@/Slice/ColumnSlice";
+'use client'
+
 import { addBoard } from "@/Slice/boardSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

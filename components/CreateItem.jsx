@@ -1,7 +1,7 @@
 // KanbanItem.js
+'use client'
+
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addItem as addItemAction } from "@/Slice/ItemSlice";
 
 function CreateItem({onAddItem}) {
   const currentDate = new Date().toISOString().split('T')[0];
@@ -10,7 +10,7 @@ function CreateItem({onAddItem}) {
   const [dueDate, setDueDate] = useState(currentDate);
   const [addbtn, setAddBtn] = useState(true);
 
-  const dispatch = useDispatch();
+
 
   function handleSubmit(e) {
     e.preventDefault();

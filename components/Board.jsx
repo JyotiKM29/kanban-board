@@ -1,3 +1,5 @@
+'use client'
+
 import { MdDelete, MdEdit } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
