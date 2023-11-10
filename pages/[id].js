@@ -42,9 +42,9 @@ function KanbanBoardDetails() {
   useEffect(() => {
     if (columns.length === 0) {
       const defaultColumns = [
-        { id: 1, name: "To do", boardId: id },
-        { id: 2, name: "In Progress", boardId: id },
-        { id: 3, name: "Completed", boardId: id },
+        { id: 1, name: "👩🏻‍💻  To do", boardId: id },
+        { id: 2, name: "🚀  In Progress", boardId: id },
+        { id: 3, name: "🥳  Completed", boardId: id },
       ];
       setColumns(defaultColumns);
     }
@@ -65,7 +65,7 @@ function KanbanBoardDetails() {
       </Link>
       <div className="bg-stone-50 rounded-xl min-h-screen  px-5 pt-4 sm:p-8 ">
      
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-8">
             <div className="flex flex-col  sm:gap-1 justify-start items-start">
               <h1 className="text-2xl sm:text-3xl text-stone-950 ml-4 font-semibold">
                 {board && board.name}

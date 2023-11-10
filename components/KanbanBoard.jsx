@@ -5,9 +5,26 @@ import Link from "next/link";
 import CreateBoard from "./CreateBoard";
 import Board from "./Board";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addBoard } from "@/Slice/boardSlice";
 
 function KanbanBoard() {
   const boards = useSelector(state => state.board.board);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (boards.length === 0) {
+      const defaultBoard = {
+        id: 1,
+        name: "🏝️ Project 1",
+        desc: 'This you description of project ',
+      };
+
+      // Dispatch the addBoard action with the default board object
+      dispatch(addBoard(defaultBoard));
+    }
+  }, [boards, dispatch]);
  
 
   return (
