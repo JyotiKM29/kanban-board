@@ -7,7 +7,7 @@ function Item({item }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-slate-50 drop-shadow-lg  shadow-violet-500/20 h-auto w-full py-3 px-4 rounded-xl">
+    <div className="bg-slate-50 drop-shadow-lg  shadow-violet-500/20 h-auto w-full py-3 px-4 rounded-xl mt-2">
       <h2 className="text-lg">{item.itemName}</h2>
       <p className="text-md text-stone-500 mb-6">{item.itemDesc}</p>
      <div className="flex justify-between items-center">

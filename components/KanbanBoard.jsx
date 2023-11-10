@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Kanban from "./Board";
-import CreateNewBoard from "./CreateBoard";
+import CreateBoard from "./CreateBoard";
 import Board from "./Board";
 import { useSelector } from "react-redux";
 
@@ -12,7 +12,7 @@ function KanbanBoard() {
   return (
     <>
       
-      <div className="relative h-[94%]">
+      <div className="relative h-[82%] sm:h-[94%]">
         <ul className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
           {boards.map((board) => (
             <Link key={board.id} href={`/${board.id}`}>
@@ -22,7 +22,7 @@ function KanbanBoard() {
             </Link>
           ))}
         </ul>
-        <CreateNewBoard />
+        <CreateBoard />
 
       </div>
     </>

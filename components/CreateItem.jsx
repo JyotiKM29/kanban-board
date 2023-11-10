@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem as addItemAction } from "@/Slice/ItemSlice";
 
-function CreateItem() {
+function CreateItem({board}) {
   const [itemName, setItemName] = useState("");
   const [itemDesc, setItemDesc] = useState("");
   const [dueDate, setDueDate] = useState(null);
@@ -14,12 +14,13 @@ function CreateItem() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!itemName || !itemDesc) return;
+    if (!itemName || !itemDesc ) return;
 
     const newItem = {
       id: Date.now(),
       itemName,
       itemDesc,
+      // boardId: board.id, 
       dueDate,
     };
     dispatch(addItemAction(newItem));
@@ -34,7 +35,7 @@ function CreateItem() {
     <>
       {addbtn ? (
         <button
-          className="bg-violet-100 px-4 py-2 w-full rounded-full text-violet-800 focus:outline-none mb-4"
+          className="bg-violet-100 px-4 py-2 w-full rounded-full text-violet-800 focus:outline-none "
           onClick={() => setAddBtn(!addbtn)}
         >
           {" "}

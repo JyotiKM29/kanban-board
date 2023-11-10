@@ -3,7 +3,7 @@ import KanbanBoard from "@/components/KanbanBoard";
 function App() {
   
   return (
-    <div className="bg-violet-100 w-screen h-screen p-4">
+    <div className="bg-violet-100 w-screen  h-screen p-4">
       <h1 className="text-5xl text-center font-bold mt-4 "> 🎯 Kanban-Board</h1>
 
       <KanbanBoard />

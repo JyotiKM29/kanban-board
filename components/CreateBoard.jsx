@@ -6,8 +6,8 @@ function CreateBoard({ onAddBoard }) {
   const [boardName, setBoardName] = useState("");
   const [boardDesc, setBoardDesc] = useState("");
   const [addBtn, setAddBtn] = useState(true);
-  const board = useSelector(state => state.board.board);
-
+ 
+  
   
 
   const dispatch= useDispatch();
@@ -30,8 +30,7 @@ function CreateBoard({ onAddBoard }) {
     setBoardDesc("");
 
     setAddBtn(true);
-    console.log(newBoard);
-    console.log(board);
+ 
   }
 
   return (
