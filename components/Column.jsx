@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CreateItem from "./CreateItem";
 import Item from "./Item";
-import { FiEdit2,} from 'react-icons/Fi';
+import { FiEdit2,} from 'react-icons/fi';
 import { MdDelete } from 'react-icons/md';
 
 function Column({ columnHeading, columnId, boardId, onDeleteCol, onEditCol }) {

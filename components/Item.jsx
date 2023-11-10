@@ -1,6 +1,6 @@
 'use client'
 
-import { FiEdit2 } from 'react-icons/Fi';
+import { FiEdit2 } from 'react-icons/fi';
 import { MdDelete } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
